@@ -10454,5 +10454,6 @@
         }
       ]
     },
-    "status": "success"
+    "status": "success",
+    "asr_agg_threshold": 3
   }
