@@ -10455,5 +10455,5 @@
       ]
     },
     "status": "success",
-    "asr_agg_threshold": 3
+    "phrase_length": 9
   }
