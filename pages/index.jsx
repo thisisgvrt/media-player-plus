@@ -19,7 +19,7 @@ export default function Home() {
           <VideoPlayer isPlaying={isPlaying} setPlayingStatus={setPlayingStatus} timeStamp={timeStamp} setTimeStamp={setTimeStamp}/>
         </div>
         <div className="row-start-2 row-span-2 col-start-7 col-span-2">
-          <ASRContainer timeStamp={timeStamp}/>
+          <ASRContainer timeStamp={timeStamp} setTimeStamp={setTimeStamp}/>
         </div>
         <div className="row-start-4 row-span-1 col-start-3 col-span-4">
           <VideoControls isPlaying={isPlaying} setPlayingStatus={setPlayingStatus} timeStamp={timeStamp} setTimeStamp={setTimeStamp}/>
