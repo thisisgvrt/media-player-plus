@@ -5,12 +5,11 @@ const { asr_word } = metadata;
 
 const indexed_constant_length_phrases = {};
 
-let word_index=0;
+let word_index = 0;
 
-while(word_index < asr_word.length){
+while (word_index < asr_word.length) {
     let phrase_accumulator = [];
-    while(phrase_accumulator.length < phrase_length)
-    {
+    while (phrase_accumulator.length < phrase_length) {
         phrase_accumulator.push(asr_word[word_index]);
         word_index += 1;
     }
@@ -34,16 +33,16 @@ while(word_index < asr_word.length){
 const groupedASRKeys = Object.keys(indexed_constant_length_phrases);
 
 export default function ASRContainer({ timeStamp }) {
-    
+
     const distance_array = groupedASRKeys.map(instant => Math.abs(timeStamp - instant));
     const minimum_distance = min(distance_array);
     const minimum_distance_index = indexOf(distance_array, minimum_distance);
     const sentence = (indexed_constant_length_phrases[groupedASRKeys[minimum_distance_index]]).map(elem => elem.word).join(" ");
     let previous_sentence, next_sentence;
-    if(minimum_distance_index > 1){
+    if (minimum_distance_index > 1) {
         previous_sentence = (indexed_constant_length_phrases[groupedASRKeys[minimum_distance_index - 1]]).map(elem => elem.word).join(" ");
     }
-    if(minimum_distance_index < distance_array.length - 1){
+    if (minimum_distance_index < distance_array.length - 1) {
         next_sentence = (indexed_constant_length_phrases[groupedASRKeys[minimum_distance_index + 1]]).map(elem => elem.word).join(" ");
     }
     return (
